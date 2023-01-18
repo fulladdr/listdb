@@ -9,4 +9,6 @@ scripts/ccc
 .nvimlog
 bak/
 log-*
+cscope.out
+cscope.files
 *.patch
