@@ -2456,6 +2456,7 @@ int db_bench_tool(int argc, char** argv) {
   Benchmark benchmark;
   benchmark.Run();
 
+
 #if 0
   if (FLAGS_print_malloc_stats) {
     std::string stats_string;

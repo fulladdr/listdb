@@ -252,7 +252,8 @@ ListDB::~ListDB() {
 void ListDB::Init() {
   std::string db_path = "/pmem/wkim/listdb";
   fs::remove_all(db_path);
-  int root_pool_id = Pmem::BindPool<pmem_db>(db_path, "", 64*1024*1024);
+  int root_pool_id = Pmem::BindPool<pmem_db>(db_path, "", 8*1024*1024);
+  // int root_pool_id = Pmem::BindPool<pmem_db>(db_path, "", 64*1024*1024);
   if (root_pool_id != 0) {
     std::cerr << "root_pool_id must be zero (current: " << root_pool_id << ")\n";
     exit(1);
@@ -490,6 +491,7 @@ void ListDB::Init() {
 }
 
 void ListDB::Open() {
+	printf("list db open started\n");
   std::string db_path = "/pmem/wkim/listdb";
   int root_pool_id = Pmem::BindPool<pmem_db>(db_path, "", 64*1024*1024);
   if (root_pool_id != 0) {
